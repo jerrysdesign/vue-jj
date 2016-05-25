@@ -1,0 +1,46 @@
+@import "../../base/fn";
+@import "../jj_button/jj_button";
+
+.jj_msg {
+    padding-top: @jjMsgPaddingTop;
+    text-align: center;
+
+    .jj_icon_area {
+        margin-bottom: @jjMsgIconGap;
+    }
+
+    .jj_text_area {
+        margin-bottom: @jjMsgTextGap;
+        padding:0 20px;
+    }
+    .jj_msg_title {
+        margin-bottom: @jjMsgTitleGap;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    .jj_msg_desc {
+        font-size: 14px;
+        color: @globalTextColor;
+    }
+
+    .jj_opr_area {
+        margin-bottom: @jjMsgOprGap;
+    }
+
+    .jj_extra_area {
+        margin-bottom: @jjMsgExtraAreaGap;
+        font-size: 14px;
+        color: @globalTextColor;
+        a{color: @globalLinkColor;}
+    }
+}
+
+@media screen and (min-height: @jjMsgExtraAreaOfMinHeight) {
+    .jj_extra_area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

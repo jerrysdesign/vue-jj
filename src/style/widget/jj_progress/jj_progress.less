@@ -1,0 +1,24 @@
+@import "../../base/fn";
+
+.jj_progress {
+    display: flex;
+    align-items: center;
+}
+
+.jj_progress_bar {
+    background-color: @jjProgressBg;
+    height: @jjProgressHeight;
+    flex: 1;
+}
+
+.jj_progress_inner_bar {
+    width: 0;
+    height: 100%;
+    background-color: @jjProgressColor;
+}
+
+.jj_progress_opr {
+    display: block;
+    margin-left: 15px;
+    font-size: 0;
+}

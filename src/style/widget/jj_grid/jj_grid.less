@@ -1,0 +1,56 @@
+@import "../../base/fn";
+
+._grids {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        .setTopLine(@jjGridBorderColor);
+    }
+    &:after {
+        .setLeftLine(@jjGridBorderColor);
+    }
+}
+
+._grid {
+    position: relative;
+    float: left;
+    padding: 20px 10px;
+    width: 100% / @jjGridColumnCount;
+    box-sizing: border-box;
+
+    &:before {
+        .setRightLine(@jjGridBorderColor);
+        right: -1px;
+    }
+    &:after {
+        .setBottomLine(@jjGridBorderColor);
+    }
+
+    &:active {
+        background-color: @itemActiveColor;
+    }
+}
+
+._grid_icon {
+    width: @jjGridIconSize;
+    height: @jjGridIconSize;
+    margin: 0 auto;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    & + ._grid_label{
+        margin-top: 5px;
+    }
+}
+
+._grid_label {
+    display: block;
+    text-align: center;
+    color: @globalTitleColor;
+    font-size: @jjGridFontSize;
+}

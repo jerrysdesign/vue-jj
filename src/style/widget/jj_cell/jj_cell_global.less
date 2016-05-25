@@ -1,0 +1,70 @@
+@import "../../base/fn";
+
+.jj_cell {
+    // onepx
+    position: relative;
+    &:before {
+        .setTopLine(@jjCellBorderColor);
+        left: @jjCellGapH;
+    }
+    &:first-child {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.jj_cells {
+    margin-top: @jjCellsMarginTop;
+    background-color: @jjCellBg;
+    line-height: @jjCellLineHeight;
+    font-size: @jjCellFontSize; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+
+    overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
+
+    // onepx
+    position: relative;
+    &:before {
+        .setTopLine(@jjCellBorderColor);
+    }
+    &:after {
+        .setBottomLine(@jjCellBorderColor);
+    }
+}
+
+.jj_cells_title {
+    margin-top: .77em; // 15px - 行高
+    margin-bottom: .3em; // 8px - 行高
+    padding-left: @jjCellGapH;
+    padding-right: @jjCellGapH;
+    color: @globalTextColor;
+    font-size: @jjCellTipsFontSize;
+
+    & + .jj_cells {
+        margin-top: 0;
+    }
+}
+
+.jj_cells_tips {
+    margin-top: .3em; // 8px - 行高
+    color: @globalTextColor;
+    padding-left: @jjCellGapH;
+    padding-right: @jjCellGapH;
+    font-size: @jjCellTipsFontSize;
+}
+
+.jj_cell {
+    padding: @jjCellGapV @jjCellGapH;
+    position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+    display: flex;
+    align-items: center;
+}
+
+.jj_cell_ft {
+    text-align: right;
+    color: @globalTextColor;
+}
+
+.jj_cell_primary {
+    flex: 1;
+}

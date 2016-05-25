@@ -1,0 +1,60 @@
+@import "../../base/fn";
+// 存在样式优先级的问题，故这里对其他jj_btn的引用放在底部
+// 主要是button.jj_btn在jj_btn_plain下重写border-width
+
+.jj_btn {
+    &.jj_btn_mini {
+        line-height: @jjBtnMiniHeight;
+        font-size: @jjBtnMiniFontSize;
+        padding: 0 .75em;
+        display: inline-block;
+    }
+}
+
+button, input {
+    &.jj_btn {
+        width: 100%;
+        border-width: 0;
+        outline: 0;
+        -webkit-appearance: none;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &.jj_btn_inline,&.jj_btn_mini {
+        width: auto;
+    }
+}
+
+/*gap between btn*/
+.jj_btn + .jj_btn {
+    margin-top: @jjBtnDefaultGap;
+}
+
+.jj_btn.jj_btn_inline + .jj_btn.jj_btn_inline {
+    margin-top: auto;
+    margin-left: @jjBtnDefaultGap;
+}
+
+.jj_btn_area {
+    margin: @jjCellsMarginTop @jjBtnDefaultGap .3em;
+    &.jj_btn_area_inline {
+        display: flex;
+        .jj_btn {
+            margin-top: auto;
+            margin-right: @jjBtnDefaultGap;
+            width: 100%;
+            flex: 1;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@import "jj_btn_global";
+@import "jj_btn_default";
+@import "jj_btn_primary";
+@import "jj_btn_warn";
+@import "jj_btn_disabled";
+@import "jj_btn_plain";

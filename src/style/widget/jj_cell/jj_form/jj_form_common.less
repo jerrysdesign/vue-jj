@@ -1,0 +1,70 @@
+@import "../../../base/fn";
+
+.jj_label{
+  display:block;
+  width:3em;
+}
+.jj_input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    height: unit(@jjCellLineHeight, em);
+    line-height: @jjCellLineHeight;
+
+    // hides the spin-button
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+.jj_textarea {
+    display: block;
+    border: 0;
+    resize: none;
+    width: 100%;
+    color: inherit;
+    font-size: 1em;
+    line-height: inherit;
+    outline: 0;
+}
+
+.jj_textarea_counter{
+    color: @globalDescColor;
+    text-align: right;
+    .jj_cell_warn &{
+        color: @globalWarnColor;
+    }
+}
+
+.jj_toptips {
+    display:none;
+    position: fixed;
+    -webkit-transform: translateZ(0);
+    width: 100%;
+    top: 0;
+    line-height: 2.3;
+    font-size:14px;
+    text-align: center;
+    color: #FFF;
+    z-index: 2;
+    &.jj_warn {
+        background-color: @globalWarnColor;
+    }
+}
+.jj_cells_form {
+    .jj_cell_warn{
+        color:@globalWarnColor;
+        .jj_icon_warn{display:inline-block;}
+    }
+    .jj_cell_hd {
+        padding-right: .3em;
+    }
+    .jj_cell_ft{font-size:0;}
+    .jj_icon_warn{
+        display:none;
+    }
+}

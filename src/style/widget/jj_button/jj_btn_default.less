@@ -1,0 +1,13 @@
+@import "../../base/fn";
+
+.jj_btn_default {
+    background-color: @jjBtnDefaultBg;
+    color: @jjBtnDefaultFontColor;
+    &:not(.jj_btn_disabled):visited {
+        color: @jjBtnDefaultFontColor;
+    }
+    &:not(.jj_btn_disabled):active {
+        color: @jjBtnDefaultActiveFontColor;
+        background-color: @jjBtnDefaultActiveBg;
+    }
+}
