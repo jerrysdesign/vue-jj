@@ -26,7 +26,12 @@ export default {
 
 <style lang="stylus">
 
-.transform-trigger
+transform-top()
+  transform: translateX(-2px) translateY(5px) rotate(-45deg)
+transform-bottom()
+  transform: translateX(-2px) translateY(-5px) rotate(45deg)
+
+button()
   position: relative
   background: #444
   width: 120px
@@ -39,6 +44,10 @@ export default {
   white-space: nowrap
   cursor: pointer
   margin-top: 5em
+
+.transform-trigger
+  button()
+  // arrow
   span
     top: calc(50% - 2px)
     left: calc(50% - 22px)
@@ -47,29 +56,31 @@ export default {
       bottom: 12px
     &:after
       top: 12px
-  &:hover
-    span
-      transform: rotate(180deg)
-      &:before
-        width 50%
-        transform: translateX(-2px) translateY(5px) rotate(-45deg)
-      &:after
-        width 50%
-        transform: translateX(-2px) translateY(-5px) rotate(45deg)
+span
+  .transform-trigger:hover &
+    transform: rotate(180deg)
+    &:before
+      width 50%
+      transform-top()
+    &:after
+      width 50%
+      transform-bottom()
 
-.transform-trigger span,
-.transform-trigger span:before, 
-.transform-trigger span:after
+$arrow
   position: absolute
   width: 44px
   height: 4px
-  background: white
   border-radius: 4px
-
-.transform-trigger span:before, 
-.transform-trigger span:after
-  content: ''
-  left: 0
-  transition: transform .3s, width .3s
+  background: white
+  
+.transform-trigger
+  span
+    @extend $arrow
+    &:before
+    &:after
+      content: ''
+      left: 0
+      transition: transform .3s, width .3s
+      @extend $arrow
 
 </style>
